@@ -71,6 +71,10 @@ class ContentVNPricing extends \Module {
         $arrAttributeDisclaimers = array();
         while($objVersions->next()) {
 
+            if(!empty($objVersions->source) && $objVersions->source !== 'default') {
+                $objVersions->url = $this->generateUrl($objVersions);
+            }
+
             $objVersions->paymentType = $objVersions->getRelated('paymentType');
 
             $arrAttributeDisclaimers[$objVersions->id] = array(
@@ -117,16 +121,11 @@ class ContentVNPricing extends \Module {
         }
 
 
-        $objVersions->reset();
         $paymentDisclaimer = array();
         foreach($arrVersions as $versionId => &$version) {
 
             if(empty($arrAttributeDisclaimers[$versionId]['disclaimers'])) {
                 unset($arrAttributeDisclaimers[$versionId]);
-            }
-
-            if(!empty($objVersions->source) && $objVersions->source !== 'default') {
-                $version['url'] = $this->generateUrl($objVersions);
             }
 
             $version['attributes'] = deserialize($version['attributes']);

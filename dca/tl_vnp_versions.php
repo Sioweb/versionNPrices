@@ -74,12 +74,12 @@ $GLOBALS['TL_DCA']['tl_vnp_versions'] = array
         'href'                => 'table=tl_vnp_version_attributes',
         'icon'                => 'db.gif'
       ),
-      'payment_type_prices' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_vnp_versions']['prices'],
-        'href'                => 'table=tl_vnp_version_prices',
-        'icon'                => 'group.gif'
-      ),
+      // 'payment_type_prices' => array
+      // (
+      //   'label'               => &$GLOBALS['TL_LANG']['tl_vnp_versions']['prices'],
+      //   'href'                => 'table=tl_vnp_version_prices',
+      //   'icon'                => 'group.gif'
+      // ),
       'copy' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_vnp_versions']['copy'],
