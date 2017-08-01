@@ -1,0 +1,43 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_content.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_content.vnp_legend">
+        <source>Version &amp; Pricing</source>
+        <target>Versionen &amp; Preise</target>
+      </trans-unit>
+      <trans-unit id="tl_content.vnp_product.0">
+        <source>Choose product</source>
+        <target>Produkt wählen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.vnp_product.1">
+        <source>Please choose a product for version &amp; pricing output.</source>
+        <target>Bitte wählen Sie das Produkt für die Version &amp; Preis Ausgabe.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_content.vnp_versions.0">
+        <source>Choose versions</source>
+        <target>Versionen wählen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.vnp_versions.1">
+        <source>Please choose versions.</source>
+        <target>Bitte wählen Sie die gewünschten Versionen.</target>
+      </trans-unit>
+      <trans-unit id="tl_content.vnp_attributes.0">
+        <source>Sort attributes</source>
+        <target>Attribute sortieren</target>
+      </trans-unit>
+      <trans-unit id="tl_content.vnp_attributes.1">
+        <source>Activate all attributes and sort them.</source>
+        <target>Bitte wählen Sie alle Attribute und sortieren diese.</target>
+      </trans-unit>
+      <trans-unit id="tl_content.vnp_disclaimer.0">
+        <source>Disclaimer</source>
+        <target>Disclaimer</target>
+      </trans-unit>
+      <trans-unit id="tl_content.vnp_disclaimer.1">
+        <source>Every list item will be shown with an extra asterisk.</source>
+        <target>Jeder Listeneintrag wird mit einem weiteren Asterisk (*,**) dargestellt.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

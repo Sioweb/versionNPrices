@@ -1,0 +1,160 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_vnp_attributes.php" source-language="en">
+    <body>
+      <trans-unit id="tl_vnp_attributes.title_legend">
+        <source>Attribute settings</source>
+        <target>Attributeinstellungen</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.source_legend">
+        <source>Link settings</source>
+        <target>Weiterleitungs Einstellungen</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.headline.0">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.headline.1">
+        <source>Geben Sie einen Titel ein.</source>
+        <target>Geben Sie einen Titel ein.</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.description.0">
+        <source>Description</source>
+        <target>Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.description.1">
+        <source>Diese Beschreibung wird ausgegeben, wenn der Besucher das Hilfe-Icon klickt.</source>
+        <target>Diese Beschreibung wird ausgegeben, wenn der Besucher das Hilfe-Icon klickt.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.source.0">
+        <source>Redirect target</source>
+        <target>Weiterleitungsziel</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.source.1">
+        <source>Here you can override the default redirect target.</source>
+        <target>Hier können Sie die Standard-Weiterleitung überschreiben.</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.default.0">
+        <source>Use default</source>
+        <target>Standard</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.default.1">
+        <source>By clicking the &quot;read more …&quot; button, visitors will be redirected to the default page of the news archive.</source>
+        <target>Beim Anklicken des &quot;Weiterlesen …&quot;-Links wird der Besucher auf die Standardseite des Nachrichtenarchivs weitergeleitet.</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.internal.0">
+        <source>Page</source>
+        <target>Seite</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.internal.1">
+        <source>By clicking the &quot;read more …&quot; button, visitors will be redirected to a page.</source>
+        <target>Beim Anklicken des &quot;Weiterlesen …&quot;-Links wird der Besucher auf eine Seite weitergeleitet.</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.article.0">
+        <source>Article</source>
+        <target>Artikel</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.article.1">
+        <source>By clicking the &quot;read more …&quot; button, visitors will be redirected to an article.</source>
+        <target>Beim Anklicken des &quot;Weiterlesen …&quot;-Links wird der Besucher auf einen Artikel weitergeleitet.</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.external.0">
+        <source>External URL</source>
+        <target>Externe URL</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.external.1">
+        <source>By clicking the &quot;read more …&quot; button, visitors will be redirected to an external website.</source>
+        <target>Beim Anklicken des &quot;Weiterlesen …&quot;-Links wird der Besucher auf eine externe Webseite weitergeleitet.</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.jumpTo.0">
+        <source>Redirect page</source>
+        <target>Weiterleitungsseite</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.jumpTo.1">
+        <source>Please choose the page to which visitors will be redirected when clicking the news item.</source>
+        <target>Bitte wählen Sie die Seite aus, zu der Besucher weitergeleitet werden, wenn Sie einen Beitrag anklicken.</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.articleId.0">
+        <source>Article</source>
+        <target>Artikel</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.articleId.1">
+        <source>Please choose the article to which visitors will be redirected when clicking the news item.</source>
+        <target>Bitte wählen Sie den Artikel aus, zu der Besucher weitergeleitet werden, wenn Sie einen Beitrag anklicken.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.new.0">
+        <source>Neuer Eintrag</source>
+        <target>Neuer Eintrag</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.new.1">
+        <source>Einen neuen Eintrag erstellen.</source>
+        <target>Einen neuen Eintrag erstellen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.show.0">
+        <source>Eintragsdetails</source>
+        <target>Eintragsdetails</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.show.1">
+        <source>Die Details des Eintrags ID %s anzeigen.</source>
+        <target>Die Details des Eintrags ID %s anzeigen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.edit.0">
+        <source>Eintrag bearbeiten</source>
+        <target>Eintrag bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.edit.1">
+        <source>Eintrag ID %s bearbeiten.</source>
+        <target>Eintrag ID %s bearbeiten.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.copy.0">
+        <source>Eintrag duplizieren</source>
+        <target>Eintrag duplizieren</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.copy.1">
+        <source>Eintrag ID %s duplizieren.</source>
+        <target>Eintrag ID %s duplizieren.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.cut.0">
+        <source>Eintrag verschieben</source>
+        <target>Eintrag verschieben</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.cut.1">
+        <source>Eintrag ID %s verschieben.</source>
+        <target>Eintrag ID %s verschieben.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.delete.0">
+        <source>Eintrag löschen</source>
+        <target>Eintrag löschen</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.delete.1">
+        <source>Eintrag ID %s löschen.</source>
+        <target>Eintrag ID %s löschen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.toggle.0">
+        <source>Eintrag veröffentlichen/unveröffentlichen</source>
+        <target>Eintrag veröffentlichen/unveröffentlichen</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.toggle.1">
+        <source>Eintrag ID %s veröffentlichen/unveröffentlichen.</source>
+        <target>Eintrag ID %s veröffentlichen/unveröffentlichen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_vnp_attributes.feature.0">
+        <source>Eintrag hervorheben/zurücksetzen</source>
+        <target>Eintrag hervorheben/zurücksetzen</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.feature.1">
+        <source>Beitrag ID %s hervorheben/zurücksetzen.</source>
+        <target>Beitrag ID %s hervorheben/zurücksetzen.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

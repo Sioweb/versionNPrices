@@ -1,0 +1,26 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/default.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="VNP.paymentType.once">
+        <source>Einmalige Zahlung</source>
+        <target>Einmalige Zahlung</target>
+      </trans-unit>
+      <trans-unit id="VNP.paymentType.monthly">
+        <source>Monatliche Zahlung</source>
+        <target>Monatliche Zahlung</target>
+      </trans-unit>
+      <trans-unit id="VNP.paymentType.yearly">
+        <source>Jährliche Zahlung</source>
+        <target>Jährliche Zahlung</target>
+      </trans-unit>
+      <trans-unit id="CTE.vnp_pricing.0">
+        <source>Version &amp; Pricing</source>
+        <target>Versionen &amp; Preis</target>
+      </trans-unit>
+      <trans-unit id="CTE.vnp_pricing.1">
+        <source>Generates output for versions and pricing.</source>
+        <target>Generiert eine Ausgabe mit ausgewählten Versionen für ein Produkt.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

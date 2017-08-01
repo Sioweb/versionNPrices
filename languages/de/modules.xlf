@@ -1,0 +1,47 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/modules.php" source-language="en">
+    <body>
+      <trans-unit id="MOD.vnp.0">
+        <source>Version &amp; Pricing</source>
+        <target>Versionen &amp; Preise</target>
+      </trans-unit>
+      <trans-unit id="MOD.vnp.1">
+        <source>Produkte in verschiedenen Versionen anpreisen</source>
+        <target>Produkte in verschiedenen Versionen anpreisen</target>
+      </trans-unit>
+      <trans-unit id="MOD.vnp_attributes.0">
+        <source>Attribute/Konditionen</source>
+        <target>Attribute/Konditionen</target>
+      </trans-unit>
+      <trans-unit id="MOD.vnp_attributes.1">
+        <source>Konditionen die den Versionen hinzugefügt werden können.</source>
+        <target>Konditionen die den Versionen hinzugefügt werden können.</target>
+      </trans-unit>
+      <trans-unit id="MOD.tl_vnp_payment_types.0">
+        <source>Zahlungsintervalle</source>
+        <target>Zahlungsintervalle</target>
+      </trans-unit>
+      <trans-unit id="MOD.tl_vnp_payment_types.1">
+        <source>Gibt an in welchen Intervallen gezahlt werden kann.</source>
+        <target>Gibt an in welchen Intervallen gezahlt werden kann.</target>
+      </trans-unit>
+      <trans-unit id="MOD.vnp_products.0">
+        <source>Produkte</source>
+        <target>Produkte</target>
+      </trans-unit>
+      <trans-unit id="MOD.vnp_products.1">
+        <source>Produkte &amp; Versionen einstellen.</source>
+        <target>Produkte &amp; Versionen einstellen.</target>
+      </trans-unit>
+      
+      <trans-unit id="MOD.vnp_products.0">
+        <source>Produkte</source>
+        <target>Produkte</target>
+      </trans-unit>
+      <trans-unit id="MOD.vnp_products.1">
+        <source>Produkte &amp; Versionen einstellen.</source>
+        <target>Produkte &amp; Versionen einstellen.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

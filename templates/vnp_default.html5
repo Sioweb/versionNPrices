@@ -1,0 +1,70 @@
+<?php $this->extend('block_unsearchable'); /* Lädt Standardfelder wie Überschrift, Wrapper, etc… */ ?>
+<?php $this->block('content'); ?>
+
+<div class="tl_vnp_elements">
+<?php foreach ($this->versions as $versionId => $version) {?>
+  <div class="tl_vnp_element<?php echo !empty($version['url'])?' vnp_has_buttons':''?> <?php echo $version['status'];?>">
+    <div class="vnp_product_head">
+      <h3><?php echo $version['version'];?></h3>
+      <div class="price"><?php echo $version['price'];?></div>
+      <div class="payment">
+        <?php echo $version['paymentType']['title'];?>
+        <?php if(!empty($version['paymentType']['disclaimer'])) {?>
+        <sup><?php echo $version['paymentType']['disclaimer'];?></sup>
+        <?php }?>
+      </div>
+      <?php if(!empty($version['description'])) {?>
+      <div class="vnp_version_description"><?php echo $version['description'];?></div>
+      <?php }?>
+    </div>
+    <ul>
+      <?php foreach ($this->attributes as $akey => $attribute) {?>
+      <li
+        class="tl_vnp_attribute
+          <?php echo !empty($attribute['description'])?' vnp_description icona-question':''?>
+          <?php echo in_array($attribute['id'],$version['attributes'])?' vnp_isset icon-checkmark':'';?>
+          <?php echo in_array($attribute['id'],$version['optional_attributes'])?' vnp_optional icon-plus':'';?>
+          <?php echo !in_array($attribute['id'],$version['attributes']) && !in_array($attribute['id'],$version['optional_attributes'])?' vnp_invalid icon-cross':'';?>"
+      >
+        <span>
+          <?php echo $attribute['headline'];?>
+          <?php if(!empty($this->attribute_disclaimers[$versionId]['disclaimers'][$attribute['id']])) {?>
+          <sup><?php echo implode(',',array_keys($this->attribute_disclaimers[$versionId]['disclaimers'][$attribute['id']]))?></sup>
+          <?php }?>
+        </span>
+        <div class="vnp_attribute_description"><h3><?php echo $attribute['headline'];?></h3><?php echo $attribute['description'];?></div>
+      </li>
+      <?php }?>
+    </ul>
+    <?php if(!empty($version['url'])) {?>
+    <div class="vnp_button">
+      <a href="<?php echo $version['url'];?>" title="<?php echo $version['version'];?>">
+        <?php echo $version['linkTitle'];?>
+      </a>
+    </div>
+    <?php }?>
+  </div>
+<?php }?>
+</div>
+<?php if(!empty($this->disclaimers)) {?>
+<div class="tl_vnp_elements_disclaimer">
+  <ul>
+    <?php foreach($this->disclaimers as $key => $disclaimer) {?>
+    <li><span class="asterisk"><?php echo str_repeat('*',($key+1));?></span> <?php echo $disclaimer;?></li>
+    <?php }?>
+  </ul>
+</div>
+<?php }?>
+<?php if(!empty($this->attribute_disclaimers)) {?>
+<?php foreach($this->attribute_disclaimers as $versionId => $version) {?>
+<div class="tl_vnp_elements_sub_disclaimer">
+  <strong><?php echo $version['version'];?></strong>
+  <?php foreach($version['disclaimers'] as $attributeId => $disclaimers) {?>
+  <?php foreach($disclaimers as $counter => $disclaimer) {?>
+  <span><span class="vnp_counter"><?php echo $counter;?>.)</span> <span class="vnp_sub_disclaimer"><?php echo $disclaimer;?></span></span>
+  <?php }}?>
+</div>
+<?php }?>
+<?php }?>
+
+<?php $this->endblock(); ?>
