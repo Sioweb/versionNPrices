@@ -94,7 +94,7 @@ $GLOBALS['TL_DCA']['tl_vnp_version_attributes'] = array
   // Palettes
   'palettes' => array(
     '__selector__'                => array('source'),
-    'default'                     => '{title_legend},attribute,disclaimer'
+    'default'                     => '{title_legend},attribute,value,disclaimer'
   ),
 
   // Fields
@@ -123,6 +123,13 @@ $GLOBALS['TL_DCA']['tl_vnp_version_attributes'] = array
       'inputType'               => 'listWizard',
       'eval'                    => array('multiple'=>true,'tl_class'=>'long clr'),
       'sql'                     => "blob NULL",
+    ),
+    'value' => array(
+      'label'                   => &$GLOBALS['TL_LANG']['tl_vnp_version_attributes']['value'],
+      'exclude'                 => true,
+      'inputType'               => 'text',
+      'eval'                    => array('maxlength'=>255),
+      'sql'                     => "varchar(255) NOT NULL default ''"
     )
   )
 );
@@ -154,6 +161,9 @@ class tl_vnp_version_attributes extends Backend{
 
   public function getLabels($row, $label) {
     $Attribute = VnpAttributesModel::findByPk($row['attribute'])->row();
+    if(!empty($row['value'])) {
+      $Attribute['headline'] = sprintf($Attribute['headline'],$row['value'].'<span style="color:#b3b3b3; padding-left:3px;">(<del>'.$Attribute['value'].'</del>)</span>');
+    }
     return sprintf('%s <span style="color:#b3b3b3; padding-left:3px;">[%s]</span>',$Attribute['headline'],$row['id']);
   }
 }

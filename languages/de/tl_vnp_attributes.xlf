@@ -26,6 +26,14 @@
         <source>Diese Beschreibung wird ausgegeben, wenn der Besucher das Hilfe-Icon klickt.</source>
         <target>Diese Beschreibung wird ausgegeben, wenn der Besucher das Hilfe-Icon klickt.</target>
       </trans-unit>
+      <trans-unit id="tl_vnp_attributes.value.0">
+        <source>Default value</source>
+        <target>Standardwert (%s im Titel)</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_attributes.value.1">
+        <source>Der hier angegebene Wert, wird im Titel anstelle von %s eingesetzt.</source>
+        <target>Der hier angegebene Wert, wird im Titel anstelle von %s eingesetzt.</target>
+      </trans-unit>
 
       <trans-unit id="tl_vnp_attributes.source.0">
         <source>Redirect target</source>

@@ -14,8 +14,8 @@
         <target>Jährliche Zahlung</target>
       </trans-unit>
       <trans-unit id="CTE.vnp_pricing.0">
-        <source>Version &amp; Pricing</source>
-        <target>Versionen &amp; Preis</target>
+        <source>Versions &amp; Pricings</source>
+        <target>Versionen &amp; Preise</target>
       </trans-unit>
       <trans-unit id="CTE.vnp_pricing.1">
         <source>Generates output for versions and pricing.</source>

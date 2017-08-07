@@ -165,7 +165,7 @@ $GLOBALS['TL_DCA']['tl_vnp_versions'] = array
       'label'                   => &$GLOBALS['TL_LANG']['tl_vnp_versions']['status'],
       'exclude'                 => true,
       'inputType'               => 'checkbox',
-      'options'                 => array('neu'=>'Neu','enterprise'=>'Enterprise','angebot'=>'Angebot','beliebt'=>'Beliebt'),
+      'options'                 => $GLOBALS['VNP']['states'],
       'eval'                    => array('multiple'=>true),
       'sql'                     => "blob NULL"
     ),

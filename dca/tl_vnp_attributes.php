@@ -41,6 +41,7 @@ $GLOBALS['TL_DCA']['tl_vnp_attributes'] = array
     'label' => array
     (
       'fields'                  => array('headline', 'id'),
+      'label_callback'          => array('tl_vnp_attributes', 'getLabels'),
       'format'                  => '%s <span style="color:#b3b3b3; padding-left:3px;">[%s]</span>'
     ),
     'global_operations' => array
@@ -87,7 +88,7 @@ $GLOBALS['TL_DCA']['tl_vnp_attributes'] = array
   // Palettes
   'palettes' => array(
     '__selector__'                => array('source'),
-    'default'                     => '{title_legend},headline,description;{source_legend},source'
+    'default'                     => '{title_legend},headline,description,value;{source_legend},source'
   ),
 
   // Subpalettes
@@ -133,6 +134,13 @@ $GLOBALS['TL_DCA']['tl_vnp_attributes'] = array
       'inputType'               => 'textarea',
       'eval'                    => array('rte'=>'tinyMCE','style'=>'height: 50px;','tl_class'=>'clr long','gsIgnore'=>true),
       'sql'                     => "text NULL"
+    ),
+    'value' => array(
+      'label'                   => &$GLOBALS['TL_LANG']['tl_vnp_attributes']['value'],
+      'exclude'                 => true,
+      'inputType'               => 'text',
+      'eval'                    => array('maxlength'=>255),
+      'sql'                     => "varchar(255) NOT NULL default ''"
     ),
     'source' => array
     (
@@ -283,5 +291,13 @@ class tl_vnp_attributes extends Backend{
     }
 
     return $arrOptions;
+  }
+
+
+  public function getLabels($row, $label) {
+    if(!empty($row['value'])) {
+      $row['headline'] = sprintf($row['headline'],$row['value']);
+    }
+    return sprintf('%s <span style="color:#b3b3b3; padding-left:3px;">[%s]</span>',$row['headline'],$row['id']);
   }
 }

@@ -17,6 +17,20 @@ if(TL_MODE == 'FE') {
   $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/versionsNPrices/assets/vnp.js';
 }
 
+$vnp = array(
+	'states' => array(
+		'neu'=>'Neu',
+		'enterprise'=>'Enterprise',
+		'angebot'=>'Angebot',
+		'beliebt'=>'Beliebt'
+	)
+);
+if(!empty($GLOBALS['VNP'])) {
+	$GLOBALS['VNP'] = array_merge($vnp,$GLOBALS['VNP']);
+} else {
+	$GLOBALS['VNP'] = $vnp;
+}
+
 array_insert($GLOBALS['BE_MOD']['vnp'], 4, array(
 	'vnp_attributes' => array(
 		'tables' => array('tl_vnp_attributes'),

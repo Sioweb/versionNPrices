@@ -22,14 +22,18 @@
       <li
         class="tl_vnp_attribute
           <?php echo !empty($attribute['description'])?' vnp_description icona-question':''?>
-          <?php echo in_array($attribute['id'],$version['attributes'])?' vnp_isset icon-checkmark':'';?>
-          <?php echo in_array($attribute['id'],$version['optional_attributes'])?' vnp_optional icon-plus':'';?>
-          <?php echo !in_array($attribute['id'],$version['attributes']) && !in_array($attribute['id'],$version['optional_attributes'])?' vnp_invalid icon-cross':'';?>"
+          <?php echo !empty($version['attributes'][$attribute['id']])?' vnp_isset icon-checkmark':'';?>
+          <?php echo !empty($version['optional_attributes'][$attribute['id']])?' vnp_optional icon-plus':'';?>
+          <?php echo empty($version['attributes'][$attribute['id']]) && empty($version['optional_attributes'][$attribute['id']])?' vnp_invalid icon-cross':'';?>"
       >
         <span>
-          <?php echo $attribute['headline'];?>
-          <?php if(!empty($this->attribute_disclaimers[$versionId]['disclaimers'][$attribute['id']])) {?>
-          <sup><?php echo implode(',',array_keys($this->attribute_disclaimers[$versionId]['disclaimers'][$attribute['id']]))?></sup>
+          <?php if(!empty($version['attributes'][$attribute['id']]['headline'])) {?>
+            <?php echo $version['attributes'][$attribute['id']]['headline'];?>
+          <?php } else {?>
+            <?php echo $attribute['headline'];?>
+          <?php }?>
+          <?php if(!empty($version['attributes'][$attribute['id']]['disclaimers'])) {?>
+          <sup><?php echo implode(',',array_keys($version['attributes'][$attribute['id']]['disclaimers']))?></sup>
           <?php }?>
         </span>
         <div class="vnp_attribute_description"><h3><?php echo $attribute['headline'];?></h3><?php echo $attribute['description'];?></div>
@@ -57,6 +61,7 @@
 <?php }?>
 <?php if(!empty($this->attribute_disclaimers)) {?>
 <?php foreach($this->attribute_disclaimers as $versionId => $version) {?>
+  <?php if(!empty($version['disclaimers'])) {?>
 <div class="tl_vnp_elements_sub_disclaimer">
   <strong><?php echo $version['version'];?></strong>
   <?php foreach($version['disclaimers'] as $attributeId => $disclaimers) {?>
@@ -64,7 +69,6 @@
   <span><span class="vnp_counter"><?php echo $counter;?>.)</span> <span class="vnp_sub_disclaimer"><?php echo $disclaimer;?></span></span>
   <?php }}?>
 </div>
-<?php }?>
-<?php }?>
+<?php }}}?>
 
 <?php $this->endblock(); ?>

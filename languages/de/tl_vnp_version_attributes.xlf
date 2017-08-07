@@ -26,6 +26,14 @@
         <source>Disclaimer werden Nummeriert unter der Anzeige ausgegeben.</source>
         <target>Disclaimer werden Nummeriert unter der Anzeige ausgegeben.</target>
       </trans-unit>
+      <trans-unit id="tl_vnp_version_attributes.value.0">
+        <source>Default value</source>
+        <target>Standardwert (%s im Attribut)</target>
+      </trans-unit>
+      <trans-unit id="tl_vnp_version_attributes.value.1">
+        <source>Der hier angegebene Wert, wird im Attribut anstelle von %s eingesetzt.</source>
+        <target>Der hier angegebene Wert, wird im Attribut anstelle von %s eingesetzt.</target>
+      </trans-unit>
 
       <trans-unit id="tl_vnp_version_attributes.source.0">
         <source>Redirect target</source>

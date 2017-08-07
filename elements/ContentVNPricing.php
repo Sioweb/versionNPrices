@@ -62,6 +62,8 @@ class ContentVNPricing extends \Module {
     protected function compile() {
         global $objPage;
 
+        $sortVersions = deserialize($this->vnp_versions);
+
         $objProduct = \VnpProductsModel::findByPk($this->vnp_product);
         $objVersions = $objProduct->getRelated('id');
 
@@ -71,14 +73,15 @@ class ContentVNPricing extends \Module {
         $arrAttributeDisclaimers = array();
         while($objVersions->next()) {
 
-            if(!empty($objVersions->source) && $objVersions->source !== 'default') {
-                $objVersions->url = $this->generateUrl($objVersions);
+            if(!in_array($objVersions->id,$sortVersions)) {
+                continue;
             }
 
             $objVersions->paymentType = $objVersions->getRelated('paymentType');
 
             $arrAttributeDisclaimers[$objVersions->id] = array(
                 'version' => $objVersions->version,
+                'value' => array(),
                 'disclaimers' => array()
             );
 
@@ -92,6 +95,7 @@ class ContentVNPricing extends \Module {
         if(!empty($AttributeDisclaimers)) {
             while($AttributeDisclaimers->next()) {
                 $AttributeDisclaimers->disclaimer = deserialize($AttributeDisclaimers->disclaimer);
+                $arrAttributeDisclaimers[$AttributeDisclaimers->pid]['value'][$AttributeDisclaimers->attribute] = $AttributeDisclaimers->value;
                 $arrAttributeDisclaimers[$AttributeDisclaimers->pid]['disclaimers'][$AttributeDisclaimers->attribute] = $AttributeDisclaimers->disclaimer;
             }
         }
@@ -104,8 +108,12 @@ class ContentVNPricing extends \Module {
 
             $_disclaimers = array();
             foreach($attributes['disclaimers'] as $k1 => $disclaimers) {
-                foreach($disclaimers as $disclaimer) {
-                    $_disclaimers[$k1][++$disclaimerCounter] = $disclaimer;
+                if(!empty($disclaimers)) {
+                    foreach($disclaimers as $disclaimer) {
+                        if(!empty($disclaimer)) {
+                            $_disclaimers[$k1][++$disclaimerCounter] = $disclaimer;
+                        }
+                    }
                 }
             }
             $arrAttributeDisclaimers[$versionId]['disclaimers'] = $_disclaimers;
@@ -120,17 +128,33 @@ class ContentVNPricing extends \Module {
             }
         }
 
+        $arrAttributes = $objAttributes->fetchAllAssoc();
+        $_arrAttribute = array();
+        foreach($arrAttributes as $attribute) {
+            $_arrAttribute[$attribute['id']] = $attribute;
+        }
+        $arrAttributes = $_arrAttribute;
+        unset($_arrAttribute);
 
+        $objVersions->reset();
         $paymentDisclaimer = array();
+
         foreach($arrVersions as $versionId => &$version) {
 
             if(empty($arrAttributeDisclaimers[$versionId]['disclaimers'])) {
+                unset($arrAttributeDisclaimers[$versionId]['disclaimers']);
+            }
+            if(empty($arrAttributeDisclaimers[$versionId]['disclaimers']) && empty($arrAttributeDisclaimers[$versionId]['value'])) {
                 unset($arrAttributeDisclaimers[$versionId]);
             }
 
-            $version['attributes'] = deserialize($version['attributes']);
-            $version['optional_attributes'] = deserialize($version['optional_attributes']);
-            
+            if(!empty($objVersions->source) && $objVersions->source !== 'default') {
+                $version['url'] = $this->generateUrl($objVersions);
+            }
+
+            $version['attributes'] = $this->attributes(deserialize($version['attributes']),$arrAttributes,$arrAttributeDisclaimers[$version['id']]);
+            $version['optional_attributes'] = $this->attributes(deserialize($version['optional_attributes']),$arrAttributes,$arrAttributeDisclaimers[$version['id']]);
+                
             if(!empty($version['paymentType']->description)) {
 
                 if(!in_array($version['paymentType']->id,$paymentDisclaimer)) {
@@ -180,11 +204,8 @@ class ContentVNPricing extends \Module {
             }
         }
 
-        // die();
-
         unset($version);
 
-        $sortVersions = deserialize($this->vnp_versions);
         $_arrVersions = array();
         foreach($sortVersions as $key => $id) {
             $_arrVersions[$id] = $arrVersions[$id];
@@ -192,10 +213,41 @@ class ContentVNPricing extends \Module {
         $arrVersions = $_arrVersions;
         unset($_arrVersions);
 
-        $this->Template->attributes = $objAttributes->fetchAllAssoc();
+        $this->Template->attributes = $arrAttributes;
         $this->Template->attribute_disclaimers = $arrAttributeDisclaimers;
         $this->Template->versions = $arrVersions;
         $this->Template->disclaimers = deserialize($this->vnp_disclaimer);
+    }
+
+    private function attributes($choosenAttributes,&$arrAttributes,$versionAttributes) {
+        if(empty($choosenAttributes)) {
+            return array();
+        }
+
+        $arrData = array();
+
+        foreach($choosenAttributes as $id) {
+            $arrData[$id] = $arrAttributes[$id];
+
+            if(!empty($versionAttributes['value'][$id])) {
+                $arrData[$id]['headline'] = sprintf($arrData[$id]['headline'],$versionAttributes['value'][$id]);
+            } elseif(!empty($arrData[$id]['value'])) {
+                $arrData[$id]['headline'] = sprintf($arrData[$id]['headline'],$arrData[$id]['value']);
+            }
+
+
+            if(!empty($disclaimers = $versionAttributes['disclaimers'][$id])) {
+                foreach($disclaimers as $key => $value) {
+                    if(!empty($value)) {
+                        $arrData[$id]['disclaimers'][$key] = $value;
+                    }
+                }
+            }
+        }
+
+        // print_r($arrData);
+
+        return $arrData;
     }
 
 
